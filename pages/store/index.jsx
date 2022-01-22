@@ -20,24 +20,24 @@ const Store = () => {
             const { id, title, image, description, price } = product;
             return (
               <li key={id} className={styles.card}>
-                <Link href={`/products/${id}`} passHref>
-                  <div>
+                <div>
+                  <Link href={`/products/${id}`} passHref>
                     <img src={image} alt={title} />
-                    <div className={styles.content}>
-                      <div className={styles.heading}>
-                        <h3>{title}</h3>
-                        <p>${price}</p>
-                      </div>
-                      <p>{description}</p>
-                      <button
-                        className={styles.btn}
-                        onClick={() => addToCart(id)}
-                      >
-                        Add
-                      </button>
+                  </Link>
+                  <div className={styles.content}>
+                    <div className={styles.heading}>
+                      <h3>{title}</h3>
+                      <p>${price}</p>
                     </div>
+                    <p>{description}</p>
+                    <button
+                      className={styles.btn}
+                      onClick={() => addToCart(id)}
+                    >
+                      Add to Cart
+                    </button>
                   </div>
-                </Link>
+                </div>
               </li>
             );
           })}

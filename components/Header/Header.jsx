@@ -5,7 +5,7 @@ import { BiCart } from 'react-icons/bi';
 import { useCart } from '../../lib/useCart';
 
 const Header = () => {
-  const { subtotal, checkout } = useCart();
+  const { subtotal } = useCart();
   const [open, setOpen] = useState(false);
   return (
     <header>
@@ -48,7 +48,7 @@ const Header = () => {
             <Link href='/cart' passHref>
               <a>
                 <div className='cart-container'>
-                  <BiCart size={24} color='black' />
+                  <BiCart size={24} color={open ? 'black' : 'white'} />
                   {subtotal !== 0 ? <div className='dot'></div> : ''}
                 </div>
               </a>

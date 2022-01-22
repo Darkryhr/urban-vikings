@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import products from '../../products.json';
-import styles from './Product.module.scss';
+import styles from '../../styles/Product.module.scss';
 import { useCart } from '../../lib/useCart';
 
 const ProductPage = ({ product: { id, title, description, image, price } }) => {
@@ -18,7 +18,9 @@ const ProductPage = ({ product: { id, title, description, image, price } }) => {
             <h1>{title}</h1>
             <p>{description}</p>
             <h3>{price}</h3>
-            <button onClick={() => addToCart(id)}>Buy</button>
+            <button onClick={() => addToCart(id)} className={styles.btn}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </main>

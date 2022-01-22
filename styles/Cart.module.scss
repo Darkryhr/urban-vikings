@@ -25,3 +25,35 @@
     transform: scale(1.1);
   }
 }
+
+.quant {
+  border: none;
+  border-bottom: 2px solid lightgray;
+  font-size: 1rem;
+  color: #8a8a8a;
+  font-weight: bold;
+  max-width: 50px;
+}
+
+.update {
+  max-width: 16px;
+  height: auto;
+  path {
+    fill: #6b6b6b;
+  }
+}
+
+.btn {
+  border: none;
+  color: #444444;
+  font-weight: 700;
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 5px;
+  transition: ease all 0.1s;
+  background: none;
+  &:hover {
+    background: #d3d3d3;
+  }
+}

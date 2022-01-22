@@ -15,6 +15,11 @@
   border: 1px solid lightgray;
   background: white;
   border-radius: 5px;
+  cursor: pointer;
+  transition: ease 0.3s all;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .card h3 {

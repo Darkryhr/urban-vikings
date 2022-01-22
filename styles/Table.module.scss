@@ -1,8 +1,10 @@
 .tableStyle {
   border-collapse: collapse;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
   border-spacing: 0;
-
   thead {
     background: #141514;
     color: white;
@@ -11,7 +13,10 @@
   tbody {
     border: 1px solid rgb(204, 204, 204);
   }
-  td {
-    padding: 1rem 2rem;
+
+  @media only screen and (min-width: 680px) {
+    td {
+      padding: 1rem 2rem;
+    }
   }
 }
