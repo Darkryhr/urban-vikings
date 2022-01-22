@@ -1,0 +1,17 @@
+.tableStyle {
+  border-collapse: collapse;
+  width: 100%;
+  border-spacing: 0;
+
+  thead {
+    background: #141514;
+    color: white;
+    text-align: left;
+  }
+  tbody {
+    border: 1px solid rgb(204, 204, 204);
+  }
+  td {
+    padding: 1rem 2rem;
+  }
+}

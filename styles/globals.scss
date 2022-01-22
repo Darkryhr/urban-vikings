@@ -28,7 +28,6 @@ a {
   height: 100vh;
   z-index: -1;
   animation: introLoad 2s forwards;
-  //overflow: hidden;
 }
 
 .nav-block {
@@ -42,11 +41,6 @@ a {
   height: 9vh;
   z-index: -1;
   animation: introLoad 2s forwards;
-}
-
-.logo {
-  color: white;
-  font-weight: bold;
 }
 
 nav {
@@ -92,6 +86,14 @@ header {
     width: 2.3em;
     margin-top: -0.6em;
     cursor: pointer;
+  }
+
+  .logo {
+    margin-top: 0;
+    width: 15em !important;
+    path {
+      fill: white;
+    }
   }
 }
 
@@ -156,6 +158,12 @@ section.hero {
     display: none;
   }
 
+  .logo {
+    path {
+      fill: #141514 !important;
+    }
+  }
+
   nav {
     transform: translateX(0);
     position: unset;
@@ -170,6 +178,7 @@ section.hero {
 
     ul {
       display: flex;
+      align-items: center;
       margin: 0;
 
       a {
@@ -197,14 +206,6 @@ section.hero {
     right: 0;
     width: 50%;
     height: 9vh;
-  }
-
-  .logo {
-    color: #141514;
-
-    span {
-      color: #4b84aa;
-    }
   }
 
   section.hero {
@@ -258,6 +259,11 @@ section.hero {
   }
 }
 
+.wrapper {
+  min-height: 90vh;
+  overflow: hidden;
+}
+
 @media only screen and (min-width: 1200px) {
   .wrapper {
     width: 1200px;
@@ -294,4 +300,22 @@ section.hero {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.cart-container {
+  position: relative;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background: #f01f53;
+  border-radius: 10px;
+  position: absolute;
+  top: -10px;
+  right: 4px;
 }

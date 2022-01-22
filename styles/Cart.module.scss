@@ -1,0 +1,27 @@
+.central {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.checkout {
+  border: none;
+  font-weight: bold;
+  letter-spacing: 0.01rem;
+  color: white;
+  background: black;
+  padding: 1rem;
+  font-size: medium;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: 0.2s ease all;
+  &:hover {
+    background: #4b84aa;
+    transform: scale(1.1);
+  }
+}
