@@ -1,0 +1,44 @@
+.grid * {
+  color: #141514;
+}
+
+.grid {
+  padding: 2rem 1vw;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 40px;
+  align-items: stretch;
+}
+
+.card {
+  border: 1px solid lightgray;
+  background: white;
+  border-radius: 5px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+}
+
+.card img {
+  max-width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.7rem;
+}
+
+.content {
+  padding: 0.7rem 1.2rem;
+}
+
+.content p {
+  font-size: 0.9rem;
+  padding-bottom: 0.8rem;
+}

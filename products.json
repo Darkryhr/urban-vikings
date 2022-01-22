@@ -1,0 +1,16 @@
+[
+  {
+    "id": "price_1KKej0C7PsmBpE7QzHEkuvyA",
+    "title": "Classic Hoodie",
+    "description": "Keep it simple, keep it cool...metaphorically of course, cause in our classic you'll never need the heater.",
+    "image": "/products/ClassicHoodie.jpg",
+    "price": 29.99
+  },
+  {
+    "id": "price_1KKelOC7PsmBpE7QK9ExKezE",
+    "title": "Classic T-Shirt",
+    "description": "Anything good has to start somewhere, for a wardrobe that start is probably a good ol' T.",
+    "image": "/products/ClassicT.jpg",
+    "price": 15.99
+  }
+]

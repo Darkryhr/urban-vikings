@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 1.5em;
   font-family: 'Poppins', sans-serif;
-  background: #dbdbdb;
 }
 
 a {
@@ -24,6 +29,19 @@ a {
   z-index: -1;
   animation: introLoad 2s forwards;
   //overflow: hidden;
+}
+
+.nav-block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #141514;
+  background-position-x: 20%;
+  background-position-y: 20%;
+  width: 100%;
+  height: 9vh;
+  z-index: -1;
+  animation: introLoad 2s forwards;
 }
 
 .logo {
@@ -172,6 +190,13 @@ section.hero {
     right: 0;
     width: 50%;
     height: 42em;
+  }
+
+  .nav-block {
+    left: unset;
+    right: 0;
+    width: 50%;
+    height: 9vh;
   }
 
   .logo {
