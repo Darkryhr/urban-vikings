@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import products from '../products.json';
-import { useCart } from '../lib/useCart';
-import Table from '../components/Header/Table';
-import Header from '../components/Header/Header';
-import styles from '../styles/Cart.module.scss';
+import products from '@products.json';
+import { useCart } from '@lib/useCart';
+import Table from '@components/Table';
+import Header from '@components/Header';
+import styles from '@styles/Cart.module.scss';
 
 const columns = [
   {
@@ -34,20 +34,20 @@ const Cart = () => {
 
     const Quantity = () => {
       const [quant, setQuant] = useState(quantity);
-      const handleSubmit = (e) => {
+      const handleSubmit = e => {
         e.preventDefault();
         updateCartItem(id, +quant);
       };
 
       return (
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={e => handleSubmit(e)}>
           <input
             className={styles.quant}
             type='number'
             name='quantity'
             min={0}
             value={quant}
-            onChange={(e) => setQuant(e.target.value)}
+            onChange={e => setQuant(e.target.value)}
           />
           <button type='submit' className={styles.btn}>
             <svg

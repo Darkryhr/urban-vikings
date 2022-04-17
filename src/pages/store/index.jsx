@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import products from '../../products.json';
-import styles from '../../styles/Store.module.scss';
-import { useCart } from '../../lib/useCart';
+import Header from '@components/Header';
+import products from '@data/products';
+import styles from '@styles/Store.module.scss';
+import { useCart } from '@lib/useCart';
 import Link from 'next/link';
 
 const Store = () => {
@@ -16,7 +16,7 @@ const Store = () => {
         <h1>Store</h1>
 
         <ul className={styles.grid}>
-          {products.map((product) => {
+          {products.map(product => {
             const { id, title, image, description, price } = product;
             return (
               <li key={id} className={styles.card}>

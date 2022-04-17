@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, useEffect } from 'react';
 import { initiateCheckout } from './payment';
-import products from '../products.json';
+import products from '@data/products.json';
 
 const initialCart = {};
 
@@ -40,8 +40,8 @@ export const useCartState = () => {
     0
   );
 
-  const addToCart = (id) => {
-    setCart((state) => {
+  const addToCart = id => {
+    setCart(state => {
       let prev = { ...state };
       if (prev[id]) {
         prev[id] += 1;
@@ -53,7 +53,7 @@ export const useCartState = () => {
   };
 
   const updateCartItem = (id, quant = 0) => {
-    setCart((state) => {
+    setCart(state => {
       let prev = { ...state };
       if (prev[id]) {
         prev[id] = quant;
@@ -64,7 +64,7 @@ export const useCartState = () => {
 
   const checkout = () => {
     initiateCheckout({
-      lineItems: cartItems.map((item) => ({
+      lineItems: cartItems.map(item => ({
         price: item.id,
         quantity: item.quantity,
       })),

@@ -1,5 +1,5 @@
-import '../styles/globals.scss';
-import { CartContext, useCartState } from '../lib/useCart';
+import '@styles/globals.scss';
+import { CartContext, useCartState } from '@lib/useCart';
 
 function MyApp({ Component, pageProps }) {
   const cart = useCartState();

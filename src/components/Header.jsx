@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { BiCart } from 'react-icons/bi';
 
-import { useCart } from '../../lib/useCart';
+import { useCart } from '@lib/useCart';
 
 const Header = () => {
   const { subtotal } = useCart();

@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import products from '../../products.json';
-import styles from '../../styles/Product.module.scss';
-import { useCart } from '../../lib/useCart';
+import Header from '@components/Header';
+import products from '@products.json';
+import styles from '@styles/Product.module.scss';
+import { useCart } from '@lib/useCart';
 
 const ProductPage = ({ product: { id, title, description, image, price } }) => {
   const { addToCart } = useCart();
@@ -31,7 +31,7 @@ const ProductPage = ({ product: { id, title, description, image, price } }) => {
 export default ProductPage;
 
 export async function getStaticPaths() {
-  const paths = products.map((product) => ({
+  const paths = products.map(product => ({
     params: {
       pid: product.id,
     },
