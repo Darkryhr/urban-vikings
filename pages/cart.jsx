@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
 import Table from '@components/Table';
-import Header from '@components/Header';
 
 const columns = [
   {
@@ -105,7 +104,6 @@ const Cart = () => {
     <>
       <div className='nav-block'></div>
       <main className='wrapper'>
-        <Header />
         <div>
           <Table data={data} columns={columns} />
           <button onClick={checkout}>Check Out</button>

@@ -1,30 +1,15 @@
 import React from 'react';
-import Header from '@components/Header';
 
 const Home = () => {
   return (
     <>
-      <div className='hero-img'></div>
-      <main className='wrapper'>
-        <Header />
-        <section className='hero'>
-          <h1>Become the kings and queens of the cold.</h1>
-
-          <p className='subhead'>
+      <div className="bg-[url('/hero3.jpg')] bg-cover absolute top-0 right-0 w-full md:h-[75vh] h-screen -z-10 md:w-1/2 md:bg-top bg-[center_left_-16rem]"></div>
+      <main className='max-w-screen-xl px-2 mx-auto'>
+        <section className='pt-32 w-1/2 px-8 h-[90vh] md:text-gray-800 text-white'>
+          <h1 className='font-bold text-7xl '>Rule the cold.</h1>
+          <p className=''>
             Clothes made to last. Look and feel your best in any situation.
           </p>
-
-          <svg
-            className='down-arrow'
-            viewBox='0 0 16 132'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M7.29289 131.707C7.68341 132.098 8.31658 132.098 8.7071 131.707L15.0711 125.343C15.4616 124.953 15.4616 124.319 15.0711 123.929C14.6805 123.538 14.0474 123.538 13.6568 123.929L7.99999 129.586L2.34314 123.929C1.95262 123.538 1.31945 123.538 0.928927 123.929C0.538402 124.319 0.538402 124.953 0.928927 125.343L7.29289 131.707ZM7 -4.37114e-08L6.99999 131L8.99999 131L9 4.37114e-08L7 -4.37114e-08Z'
-              fill='black'
-            />
-          </svg>
         </section>
       </main>
     </>

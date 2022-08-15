@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '@components/Header';
 import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
 
@@ -10,7 +9,6 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
     <>
       <div className='nav-block'></div>
       <main className='wrapper'>
-        <Header />
         <div>
           <img src={image} alt={title} />
           <div>

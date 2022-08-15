@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '@components/Header';
+import Navbar from '@components/Navbar';
 
 const About = () => {
   return (
     <>
       <div className='nav-block'></div>
       <main className='wrapper'>
-        <Header />
+        <Navbar />
         <h1>About</h1>
       </main>
     </>

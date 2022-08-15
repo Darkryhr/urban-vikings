@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '@components/Header';
 import products from '@data/products';
 import { useCart } from '@lib/useCart';
 import Link from 'next/link';
@@ -11,7 +10,6 @@ const Store = () => {
     <>
       <div className='nav-block'></div>
       <main className='wrapper'>
-        <Header />
         <h1>Store</h1>
 
         <ul>
