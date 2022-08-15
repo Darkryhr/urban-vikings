@@ -8,7 +8,7 @@ const Store = () => {
   const { addToCart } = useCart();
 
   return (
-    <main className='max-w-screen-xl mx-auto md:px-8 px-2 pt-4'>
+    <main className='max-w-screen-xl mx-auto md:px-8 px-4 pt-4'>
       <div className='grid md:grid-cols-4 grid-cols-2 gap-4'>
         {products.map(product => {
           const { id, title, image, price } = product;
@@ -25,9 +25,9 @@ const Store = () => {
                   </button>
                 </div>
               </Link>
-              <div className='flex w-full justify-between text-gray-800 px-1 mt-1'>
-                <h3>{title}</h3>
-                <p>${price}</p>
+              <div className='flex w-full justify-between text-gray-800 px-1 mt-1 text-sm'>
+                <h3 className='font-semibold'>{title}</h3>
+                <p className=''>${price}</p>
               </div>
             </div>
           );
