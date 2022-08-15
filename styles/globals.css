@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.product button {
+  visibility: hidden;
+}
+
+.product:hover button {
+  visibility: visible;
+}

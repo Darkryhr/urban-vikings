@@ -2,40 +2,36 @@ import React from 'react';
 import products from '@data/products';
 import { useCart } from '@lib/useCart';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Store = () => {
   const { addToCart } = useCart();
 
   return (
-    <>
-      <div className='nav-block'></div>
-      <main className='wrapper'>
-        <h1>Store</h1>
-
-        <ul>
-          {products.map(product => {
-            const { id, title, image, description, price } = product;
-            return (
-              <li key={id}>
-                <div>
-                  <Link href={`/products/${id}`} passHref>
-                    <img src={image} alt={title} />
-                  </Link>
-                  <div>
-                    <div>
-                      <h3>{title}</h3>
-                      <p>${price}</p>
-                    </div>
-                    <p>{description}</p>
-                    <button onClick={() => addToCart(id)}>Add to Cart</button>
-                  </div>
+    <main className='max-w-screen-xl mx-auto md:px-8 px-2 pt-4'>
+      <div className='grid md:grid-cols-4 grid-cols-2 gap-4'>
+        {products.map(product => {
+          const { id, title, image, price } = product;
+          return (
+            <div key={id}>
+              <Link href={`/products/${id}`} passHref>
+                <div className='relative product'>
+                  <Image src={image} alt={title} width='300px' height='300px' />
+                  <button
+                    onClick={() => addToCart(id)}
+                    className='absolute max-w-[300px] w-[90%] bottom-6 bg-opacity-75 left-1/2 transform -translate-x-1/2 text-white bg-zinc-900 border border-gray-600 py-2 rounded-full font-semibold'
+                  >
+                    Add to cart
+                  </button>
                 </div>
-              </li>
-            );
-          })}
-        </ul>
-      </main>
-    </>
+              </Link>
+              <h3>{title}</h3>
+              <p>${price}</p>
+            </div>
+          );
+        })}
+      </div>
+    </main>
   );
 };
 
