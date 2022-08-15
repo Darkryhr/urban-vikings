@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '@components/Header';
 import products from '@data/products';
-import styles from '@styles/Store.module.scss';
 import { useCart } from '@lib/useCart';
 import Link from 'next/link';
 
@@ -15,27 +14,22 @@ const Store = () => {
         <Header />
         <h1>Store</h1>
 
-        <ul className={styles.grid}>
+        <ul>
           {products.map(product => {
             const { id, title, image, description, price } = product;
             return (
-              <li key={id} className={styles.card}>
+              <li key={id}>
                 <div>
                   <Link href={`/products/${id}`} passHref>
                     <img src={image} alt={title} />
                   </Link>
-                  <div className={styles.content}>
-                    <div className={styles.heading}>
+                  <div>
+                    <div>
                       <h3>{title}</h3>
                       <p>${price}</p>
                     </div>
                     <p>{description}</p>
-                    <button
-                      className={styles.btn}
-                      onClick={() => addToCart(id)}
-                    >
-                      Add to Cart
-                    </button>
+                    <button onClick={() => addToCart(id)}>Add to Cart</button>
                   </div>
                 </div>
               </li>

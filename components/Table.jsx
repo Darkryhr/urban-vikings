@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../../styles/Table.module.scss';
 
 const Table = ({ data, columns }) => {
   const rows = [...new Array(data.length)].map((item, index) => {
@@ -7,7 +6,7 @@ const Table = ({ data, columns }) => {
   });
 
   return (
-    <table className={styles.tableStyle}>
+    <table>
       <thead>
         <tr>
           {columns.map(({ columnId, Header }) => {

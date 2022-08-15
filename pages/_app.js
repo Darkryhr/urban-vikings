@@ -1,4 +1,4 @@
-import '@styles/globals.scss';
+import '@styles/globals.css';
 import { CartContext, useCartState } from '@lib/useCart';
 
 function MyApp({ Component, pageProps }) {

@@ -1,10 +1,9 @@
 import React from 'react';
 import Header from '@components/Header';
-import products from '@products.json';
-import styles from '@styles/Product.module.scss';
+import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
 
-const ProductPage = ({ product: { id, title, description, image, price } }) => {
+const ProductPage = ({ product: { id, title, image, price } }) => {
   const { addToCart } = useCart();
 
   return (
@@ -12,15 +11,12 @@ const ProductPage = ({ product: { id, title, description, image, price } }) => {
       <div className='nav-block'></div>
       <main className='wrapper'>
         <Header />
-        <div className={styles.card}>
+        <div>
           <img src={image} alt={title} />
-          <div className={styles.content}>
+          <div>
             <h1>{title}</h1>
-            <p>{description}</p>
             <h3>{price}</h3>
-            <button onClick={() => addToCart(id)} className={styles.btn}>
-              Add to Cart
-            </button>
+            <button onClick={() => addToCart(id)}>Add to Cart</button>
           </div>
         </div>
       </main>

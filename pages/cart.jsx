@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
-import products from '@products.json';
+import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
 import Table from '@components/Table';
 import Header from '@components/Header';
-import styles from '@styles/Cart.module.scss';
 
 const columns = [
   {
@@ -42,16 +41,14 @@ const Cart = () => {
       return (
         <form onSubmit={e => handleSubmit(e)}>
           <input
-            className={styles.quant}
             type='number'
             name='quantity'
             min={0}
             value={quant}
             onChange={e => setQuant(e.target.value)}
           />
-          <button type='submit' className={styles.btn}>
+          <button type='submit'>
             <svg
-              className={styles.update}
               version='1.1'
               width='420.827px'
               height='420.827px'
@@ -109,11 +106,9 @@ const Cart = () => {
       <div className='nav-block'></div>
       <main className='wrapper'>
         <Header />
-        <div className={styles.central}>
+        <div>
           <Table data={data} columns={columns} />
-          <button onClick={checkout} className={styles.checkout}>
-            Check Out
-          </button>
+          <button onClick={checkout}>Check Out</button>
         </div>
       </main>
     </>
