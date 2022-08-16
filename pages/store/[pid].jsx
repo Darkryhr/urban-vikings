@@ -12,7 +12,6 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
 
   const [quantity, setQuantity] = useState(0);
 
-  console.log(getItemQuantity(id));
   return (
     <main className='pt-4 pb-8 w-full max-w-screen-xl md:px-8 px-2 mx-auto'>
       <div className='md:flex w-full'>
@@ -50,8 +49,9 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
             <div className='custom-number-input h-10 w-24 '>
               <div className='flex flex-row h-10 w-full rounded relative bg-transparent border border-gray-300'>
                 <button
-                  className='text-gray-600 bg-white hover:bg-gray-100 h-full w-20 rounded-l border-r cursor-pointer outline-none'
+                  className='text-gray-600 bg-white hover:bg-gray-100 h-full w-20 rounded-l border-r cursor-pointer outline-none disabled:text-gray-300 disabled:cursor-default'
                   disabled={!getItemQuantity(id)}
+                  onClick={() => decreaseItemQuantity(id)}
                 >
                   <span className='m-auto text-xl'>−</span>
                 </button>
@@ -59,6 +59,7 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
                   type='number'
                   className='outline-none focus:outline-none text-center w-full font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700'
                   value={getItemQuantity(id)}
+                  readOnly
                 ></input>
                 <button
                   className=' text-gray-600 bg-white hover:bg-gray-100 h-full w-20 rounded-r border-l cursor-pointer'
@@ -70,7 +71,7 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
             </div>
           </div>
 
-          <button className='w-full bg-black text-white py-3 rounded-full'>
+          <button className='w-full bg-black transition-colors hover:bg-zinc-800 text-white py-3 rounded-full'>
             Add to Cart
           </button>
         </div>

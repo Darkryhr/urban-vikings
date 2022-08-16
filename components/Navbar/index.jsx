@@ -4,9 +4,10 @@ import { BiCart } from 'react-icons/bi';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { useCart } from '@lib/useCart';
 import { useRouter } from 'next/router';
+import CartBar from './CartBar';
 
 const Navbar = () => {
-  const { subtotal } = useCart();
+  const { openCart } = useCart();
   const [open, setOpen] = useState(false);
   let ref = useRef(null);
   const router = useRouter();
@@ -71,15 +72,17 @@ const Navbar = () => {
             About
           </a>
         </Link>
-        <Link href='/cart' passHref>
-          <a
-            className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent'
-            onClick={() => setOpen(false)}
-          >
-            <BiCart size={22} className='mx-auto pb-1' />
-          </a>
-        </Link>
+        <a
+          className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent cursor-pointer'
+          onClick={() => {
+            setOpen(false);
+            openCart();
+          }}
+        >
+          <BiCart size={22} className='mx-auto pb-1' />
+        </a>
       </div>
+      <CartBar />
     </nav>
   );
 };
