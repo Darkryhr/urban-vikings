@@ -45,7 +45,7 @@ const CartBar = () => {
           md:before:content-[attr(before)]
           '
           disabled={!cartItems.length}
-          before='Procceed to '
+          before='Proceed to '
           onClick={() => closeCart()}
         >
           Checkout
