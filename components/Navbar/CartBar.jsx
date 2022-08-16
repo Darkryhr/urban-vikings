@@ -40,10 +40,13 @@ const CartBar = () => {
       )}
       <Link href='/checkout' passHref>
         <button
-          className='bg-black text-white py-3 rounded-full mx-auto px-8 disabled:opacity-70'
+          className='bg-black text-white py-3 rounded-full mx-auto px-8 disabled:opacity-70 md:text-md text-sm
+          md:before:content-[attr(before)]
+          '
           disabled={!cartItems.length}
+          before='Procceed to '
         >
-          Proceed to checkout
+          Checkout
         </button>
       </Link>
     </aside>
@@ -56,7 +59,7 @@ const CartItem = ({ id, quantity }) => {
   const product = products.find(product => product.id === id);
   console.log(quantity);
   return (
-    <div className='grid grid-cols-2 px-2 mb-3'>
+    <div className='grid grid-cols-2 mb-3'>
       <img src={product.image} alt={product.title} className='w-full' />
       <div className='px-3'>
         <h3 className=''>{product.title}</h3>
