@@ -1,15 +1,14 @@
 import '@styles/globals.css';
-import { CartContext, useCartState } from '@lib/useCart';
+import { CartProvider } from '@lib/useCart';
 import Layout from '@components/Layout';
 
 function MyApp({ Component, pageProps }) {
-  const cart = useCartState();
   return (
-    <CartContext.Provider value={cart}>
+    <CartProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 
