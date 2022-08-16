@@ -3,14 +3,10 @@ import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
 
 const ProductPage = ({ product: { id, title, image, price } }) => {
-  const {
-    getItemQuantity,
-    increaseItemQuantity,
-    decreaseItemQuantity,
-    removeItem,
-  } = useCart();
+  const { updateCart } = useCart();
 
   const [quantity, setQuantity] = useState(0);
+  const [size, setSize] = useState('Medium');
 
   return (
     <main className='pt-4 pb-8 w-full max-w-screen-xl md:px-8 px-2 mx-auto'>
@@ -34,13 +30,15 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
             <select
               name='size'
               className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+              value={size}
+              onChange={e => setSize(e.target.value)}
             >
-              <option value='xs'>X-Small</option>
-              <option value='sm'>Small</option>
-              <option value='md'>Medium</option>
-              <option value='lg'>Large</option>
-              <option value='xl'>X-Large</option>
-              <option value='2xl'>XX-Large</option>
+              <option value='X-Small'>X-Small</option>
+              <option value='Small'>Small</option>
+              <option value='Medium'>Medium</option>
+              <option value='Large'>Large</option>
+              <option value='X-Large'>X-Large</option>
+              <option value='XX-Large'>XX-Large</option>
             </select>
           </div>
           <div className='grid grid-cols-2 items-center'>
@@ -50,20 +48,20 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
               <div className='flex flex-row h-10 w-full rounded relative bg-transparent border border-gray-300'>
                 <button
                   className='text-gray-600 bg-white hover:bg-gray-100 h-full w-20 rounded-l border-r cursor-pointer outline-none disabled:text-gray-300 disabled:cursor-default'
-                  disabled={!getItemQuantity(id)}
-                  onClick={() => decreaseItemQuantity(id)}
+                  disabled={quantity <= 0}
+                  onClick={() => setQuantity((quantity -= 1))}
                 >
                   <span className='m-auto text-xl'>−</span>
                 </button>
                 <input
                   type='number'
                   className='outline-none focus:outline-none text-center w-full font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700'
-                  value={getItemQuantity(id)}
+                  value={quantity}
                   readOnly
                 ></input>
                 <button
                   className=' text-gray-600 bg-white hover:bg-gray-100 h-full w-20 rounded-r border-l cursor-pointer'
-                  onClick={() => increaseItemQuantity(id)}
+                  onClick={() => setQuantity((quantity += 1))}
                 >
                   <span className='m-auto text-xl'>+</span>
                 </button>
@@ -71,7 +69,11 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
             </div>
           </div>
 
-          <button className='w-full bg-black transition-colors hover:bg-zinc-800 text-white py-3 rounded-full'>
+          <button
+            className='w-full bg-black transition-colors hover:bg-zinc-800 text-white py-3 rounded-full disabled:cursor-default disabled:opacity-70'
+            onClick={() => updateCart(id, quantity, size)}
+            disabled={quantity < 1}
+          >
             Add to Cart
           </button>
         </div>

@@ -2,81 +2,62 @@ import React, { useState } from 'react';
 
 import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
-import Table from '@components/Table';
-
-const columns = [
-  {
-    columnId: 'title',
-    Header: 'Product',
-  },
-  {
-    columnId: 'quantity',
-    Header: 'Quantity',
-  },
-  {
-    columnId: 'pricePerItem',
-    Header: 'Price',
-  },
-  {
-    columnId: 'total',
-    Header: 'Total',
-  },
-];
 
 const Cart = () => {
-  const { cartItems, checkout, updateCartItem } = useCart();
-
-  const data = cartItems.map(({ id, quantity, pricePerItem }) => {
-    const product = products.find(({ id: pid }) => pid === id);
-    const { title } = product || {};
-
-    const Quantity = () => {
-      const [quant, setQuant] = useState(quantity);
-      const handleSubmit = e => {
-        e.preventDefault();
-        updateCartItem(id, +quant);
-      };
-
-      return (
-        <form onSubmit={e => handleSubmit(e)}>
-          <input
-            type='number'
-            name='quantity'
-            min={0}
-            value={quant}
-            onChange={e => setQuant(e.target.value)}
-          />
-          <button type='submit'>btn</button>
-        </form>
-      );
-    };
-
-    return {
-      id,
-      title,
-      quantity: <Quantity />,
-      pricePerItem: pricePerItem.toFixed(2),
-      total: (quantity * pricePerItem).toFixed(2),
-    };
-  });
+  const { cartItems } = useCart();
 
   return (
-    <main>
-      {cartItems ? (
-        <div className='grid grid-cols-2 w-full max-w-screen-lg mx-auto py-56'>
-          <div className='w-full'>
-            <h3 className='font-semibold text-lg'>Items</h3>
-            <span className='w-full h-1 bg-red-600'></span>
-          </div>
-          <div>
-            <h3 className='font-semibold text-lg'>Summary</h3>
-          </div>
+    <main className='max-w-screen-xl px-8 mx-auto py-16'>
+      <h1 className='w-full text-3xl font-semibold mb-6'>Your Cart</h1>
+      <div></div>
+      <div className='grid gap-20 md:grid-cols-2'>
+        <div>
+          <h3 className='text-xl'>Items</h3>
+          <div className='w-full h-[1px] bg-zinc-300 my-4'></div>
+          <section>
+            {cartItems.map(item => (
+              <CartItem key={item.id} {...item} />
+            ))}
+          </section>
         </div>
-      ) : (
-        <div></div>
-      )}
+        <section>
+          <h3 className='text-xl'>Order Summary</h3>
+          <div className='w-full h-[1px] bg-zinc-300 my-4'></div>
+        </section>
+      </div>
     </main>
   );
 };
 
 export default Cart;
+
+const CartItem = ({ id, quantity, size }) => {
+  const product = products.find(product => product.id === id);
+  return (
+    <div className=' mb-5'>
+      <div className='grid grid-cols-2 max-w-xs'>
+        <img
+          src={product.image}
+          alt={product.title}
+          className='w-full max-w-[150px] rounded'
+        />
+        <div className='pl-2'>
+          <h3 className='text-md font-semibold'>{product.title}</h3>
+          <h2 className='text-lg text-zinc-800 my-1'>
+            ${quantity * product.price}
+          </h2>
+          <p className='text-xs text-zinc-500 mb-1'>Size: {size}</p>
+          <p className='text-xs text-zinc-500'>Qty: {quantity}</p>
+        </div>
+      </div>
+      <div className='flex space-x-4'>
+        <button className='text-xs underline underline-offset-2 text-zinc-600 mt-3'>
+          Remove
+        </button>
+        <button className='text-xs underline underline-offset-2 text-zinc-600 mt-3'>
+          Edit
+        </button>
+      </div>
+    </div>
+  );
+};
