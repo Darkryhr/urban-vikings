@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import CartBar from './CartBar';
 
 const Navbar = () => {
-  const { openCart } = useCart();
+  const { openCart, cartItems } = useCart();
   const [open, setOpen] = useState(false);
   let ref = useRef(null);
   const router = useRouter();
@@ -72,15 +72,20 @@ const Navbar = () => {
             About
           </a>
         </Link>
-        <a
-          className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent cursor-pointer'
-          onClick={() => {
-            setOpen(false);
-            openCart();
-          }}
-        >
-          <BiCart size={22} className='mx-auto pb-1' />
-        </a>
+        <button className='relative'>
+          <a
+            className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent cursor-pointer'
+            onClick={() => {
+              setOpen(false);
+              openCart();
+            }}
+          >
+            <BiCart size={22} className='mx-auto pb-1' />
+            {!!cartItems?.length && (
+              <div className='w-1.5 h-1.5 bg-red-800 absolute top-0 right-0 rounded-lg mt-[2px] mr-[1px]'></div>
+            )}
+          </a>
+        </button>
       </div>
       <CartBar />
     </nav>

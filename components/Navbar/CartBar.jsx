@@ -31,20 +31,20 @@ const CartBar = () => {
       </button>
       <h2 className='md:text-3xl text-xl font-semibold'>Your cart</h2>
       <div className='w-full px-8 h-[1px] bg-zinc-300 my-2'></div>
-      {cartItems.length === 0 ? (
+      {cartItems?.length === 0 ? (
         <div className='flex flex-col items-center justify-center border rounded md:p-8 p-4 text-center'>
           <HiOutlineShoppingBag size={30} />
           <p className='mt-3'>Your bag is empty. Find something dope.</p>
         </div>
       ) : (
-        cartItems.map(item => <CartItem key={item.id} {...item} />)
+        cartItems?.map(item => <CartItem key={item.id} {...item} />)
       )}
       <Link href='/checkout' passHref>
         <button
           className='bg-black text-white py-3 rounded-full mx-auto px-8 disabled:opacity-70 md:text-md text-sm mt-3
           md:before:content-[attr(before)]
           '
-          disabled={!cartItems.length}
+          disabled={!cartItems?.length}
           before='Proceed to '
           onClick={() => closeCart()}
         >
@@ -57,14 +57,18 @@ const CartBar = () => {
 
 export default CartBar;
 
-const CartItem = ({ id, quantity }) => {
+const CartItem = ({ id, quantity, size }) => {
   const product = products.find(product => product.id === id);
   return (
     <div className='grid grid-cols-2 mb-5'>
       <img src={product.image} alt={product.title} className='w-full rounded' />
-      <div className='px-3'>
-        <h3 className='md:text-md text-sm'>{product.title}</h3>
-        <h2 className='md:text-lg text-md'>{quantity * product.price}</h2>
+      <div className='pl-3'>
+        <h3 className='text-md font-semibold'>{product.title}</h3>
+        <h2 className='text-lg text-zinc-800 my-0.5'>
+          ${quantity * product.price}
+        </h2>
+        <p className='text-xs text-zinc-500'>Size: {size}</p>
+        <p className='text-xs text-zinc-500'>Qty: {quantity}</p>
       </div>
     </div>
   );
