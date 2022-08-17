@@ -18,7 +18,7 @@ const CartBar = () => {
     return () =>
       document.removeEventListener('click', handleClickOutside, true);
   });
-
+  console.log(cartItems);
   return (
     <aside
       ref={ref}
@@ -31,7 +31,7 @@ const CartBar = () => {
       </button>
       <h2 className='md:text-3xl text-xl font-semibold'>Your cart</h2>
       <div className='w-full px-8 h-[1px] bg-zinc-300 my-2'></div>
-      {cartItems?.length === 0 ? (
+      {!cartItems ? (
         <div className='flex flex-col items-center justify-center border rounded md:p-8 p-4 text-center'>
           <HiOutlineShoppingBag size={30} />
           <p className='mt-3'>Your bag is empty. Find something dope.</p>
@@ -44,7 +44,7 @@ const CartBar = () => {
           className='bg-black text-white py-3 rounded-full mx-auto px-8 disabled:opacity-70 md:text-md text-sm mt-3
           md:before:content-[attr(before)]
           '
-          disabled={!cartItems?.length}
+          disabled={!cartItems}
           before='Proceed to '
           onClick={() => closeCart()}
         >

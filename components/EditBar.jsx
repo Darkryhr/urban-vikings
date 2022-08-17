@@ -28,7 +28,7 @@ export const EditBar = ({
   return (
     <aside
       ref={ref}
-      className={`fixed md:w-1/4 w-3/4 top-0 right-0 h-screen bg-white border-l flex flex-col px-3 py-16 z-50 transition-transform duration-500 text-zinc-700
+      className={`fixed md:w-1/4 w-3/4 top-0 right-0 bg-white border-l flex flex-col px-3 py-16 z-50 transition-transform duration-500 text-zinc-700 overflow-y-scroll h-full
       ${openEditor ? 'translate-x-0' : 'translate-x-full'}
       `}
     >

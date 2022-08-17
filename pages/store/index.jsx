@@ -13,14 +13,14 @@ const Store = () => {
         {products.map(product => {
           const { id, title, image, price } = product;
           return (
-            <div key={id} className=' max-w-[300px] w-full'>
+            <div key={id} className=' max-w-[250px] w-full'>
               <Link href={`/store/${id}`} passHref>
                 <div className='relative product max-w-[300px] cursor-pointer'>
                   <Image
                     src={image}
                     alt={title}
-                    width='300px'
-                    height='300px'
+                    width='250px'
+                    height='250px'
                     className='rounded'
                   />
                   <button
