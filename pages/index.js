@@ -1,4 +1,4 @@
-import Arrow from '@components/svg/arrow';
+import Arrow from '@components/svg/Arrow';
 import Image from 'next/image';
 import React from 'react';
 
