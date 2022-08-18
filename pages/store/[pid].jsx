@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
 
-const ProductPage = ({ product: { id, title, image, price } }) => {
+const ProductPage = ({ product: { id, title, image, price, color } }) => {
   const { updateCart } = useCart();
 
   const [quantity, setQuantity] = useState(0);
   const [size, setSize] = useState('Medium');
-
   return (
     <main className='pt-4 pb-8 w-full max-w-screen-xl md:px-8 px-2 mx-auto'>
       <div className='md:flex w-full'>
@@ -20,7 +19,13 @@ const ProductPage = ({ product: { id, title, image, price } }) => {
           <h1 className='text-2xl font-semibold md:pl-0'>{title}</h1>
           <div className='grid grid-cols-2  items-center'>
             <p className='mr-6  text-sm'>Color:</p>
-            <div className='bg-blue-500 w-8 h-8 rounded-3xl border-4 border-white shadow'></div>
+            <button
+              type='button'
+              className={`w-8 h-8 rounded-3xl border-4 border-white shadow`}
+              style={{
+                backgroundColor: color,
+              }}
+            ></button>
           </div>
           <div className='grid grid-cols-2  items-center'>
             <p className='text-gray-600 mr-8 text-sm'>Price:</p>${price}
