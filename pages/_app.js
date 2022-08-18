@@ -1,7 +1,7 @@
 import '@styles/globals.css';
 import { CartProvider } from '@lib/useCart';
 import Layout from '@components/Layout';
-import { Head } from 'next/head';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   return (
