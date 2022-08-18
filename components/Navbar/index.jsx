@@ -31,7 +31,9 @@ const Navbar = () => {
     >
       <Link href='/' passHref onClick={() => setOpen(false)}>
         <div className='flex w-fit items-center justify-start'>
-          <Logo />
+          <div className='w-9'>
+            <Logo />
+          </div>
           <h1 className='md:text-xl uppercase font-bold tracking-wider cursor-pointer transition-opacity hover:opacity-80 ml-2 pt-1 whitespace-nowrap'>
             Urban Vikings
           </h1>
