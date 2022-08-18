@@ -7,7 +7,7 @@ const Arrow = () => {
       xmlSpace='preserve'
       overflow='visible'
       viewBox='0 0 63.2 279'
-      className='w-fit h-36 animate-moveArrow absolute bottom-48 left-10 md:fill-zinc-600 fill-white'
+      className='w-fit h-36 animate-moveArrow absolute sm:bottom-48 bottom-32 left-10 md:fill-zinc-600 fill-white'
     >
       <path
         fill='none'
