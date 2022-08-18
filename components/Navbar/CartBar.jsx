@@ -18,7 +18,6 @@ const CartBar = () => {
     return () =>
       document.removeEventListener('click', handleClickOutside, true);
   });
-  console.log(cartItems);
   return (
     <aside
       ref={ref}
