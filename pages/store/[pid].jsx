@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
 
-const ProductPage = ({ product: { id, title, image, price, color } }) => {
+const ProductPage = ({
+  product: { id, title, image, price, color, sizes },
+}) => {
   const { updateCart } = useCart();
 
   const [quantity, setQuantity] = useState(0);
-  const [size, setSize] = useState('Medium');
+  const [size, setSize] = useState(sizes[0]);
+
+  console.log(sizes);
   return (
     <main className='pt-4 pb-8 w-full max-w-screen-xl md:px-8 px-2 mx-auto'>
       <div className='md:flex w-full'>
@@ -38,12 +42,11 @@ const ProductPage = ({ product: { id, title, image, price, color } }) => {
               value={size}
               onChange={e => setSize(e.target.value)}
             >
-              <option value='X-Small'>X-Small</option>
-              <option value='Small'>Small</option>
-              <option value='Medium'>Medium</option>
-              <option value='Large'>Large</option>
-              <option value='X-Large'>X-Large</option>
-              <option value='XX-Large'>XX-Large</option>
+              {sizes.map(size => (
+                <option value={size} key={size}>
+                  {size}
+                </option>
+              ))}
             </select>
           </div>
           <div className='grid grid-cols-2 items-center'>
