@@ -5,6 +5,7 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { useCart } from '@lib/useCart';
 import { useRouter } from 'next/router';
 import CartBar from './CartBar';
+import Logo from '@components/svg/Logo';
 
 const Navbar = () => {
   const { openCart, cartItems } = useCart();
@@ -29,9 +30,12 @@ const Navbar = () => {
       }`}
     >
       <Link href='/' passHref onClick={() => setOpen(false)}>
-        <h1 className='md:text-xl uppercase font-semibold tracking-widest cursor-pointer transition-opacity hover:opacity-80'>
-          Urban Vikings
-        </h1>
+        <div className='flex w-full items-center justify-start'>
+          <Logo />
+          <h1 className='md:text-xl uppercase font-bold tracking-wider cursor-pointer transition-opacity hover:opacity-80 ml-2 pt-1'>
+            Urban Vikings
+          </h1>
+        </div>
       </Link>
       <button className='md:hidden mb-1' onClick={() => setOpen(true)}>
         <AiOutlineMenu size={18} />

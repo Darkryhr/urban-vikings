@@ -14,7 +14,7 @@ function getProductTotal(cartItems) {
 }
 
 const Cart = () => {
-  const { cartItems } = useCart();
+  const { cartItems, checkout } = useCart();
   const total = getProductTotal(cartItems);
   return (
     <main className='max-w-screen-xl px-8 mx-auto py-16'>
@@ -46,7 +46,10 @@ const Cart = () => {
             <p className='text-zinc-800 font-semibold'>Sub Total:</p>
             <p className='text-zinc-500'>${14.99 + total}</p>
           </div>
-          <button className='bg-blue-700 transition-colors hover:bg-blue-600 text-white w-full py-3 rounded-full'>
+          <button
+            className='bg-blue-700 transition-colors hover:bg-blue-600 text-white w-full py-3 rounded-full'
+            onClick={checkout}
+          >
             Proceed to Payment
           </button>
         </section>

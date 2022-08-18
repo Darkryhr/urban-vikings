@@ -10,5 +10,11 @@
     "title": "Classic T-Shirt",
     "image": "/products/ClassicT.jpg",
     "price": 15.99
+  },
+  {
+    "id": "price_1LY9iLC7PsmBpE7QxcLyHwFc",
+    "title": "Red Hoodie",
+    "image": "/products/RedHoodie.jpg",
+    "price": 29.99
   }
 ]
