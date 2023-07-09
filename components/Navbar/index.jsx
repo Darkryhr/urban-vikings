@@ -1,5 +1,5 @@
 import { useCart } from '@lib/useCart';
-import { Menu, Search, ShoppingBag } from 'lucide-react';
+import { Menu, Search, ShoppingBag, X } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
@@ -22,17 +22,22 @@ const Navbar = () => {
   });
 
   return (
-    <header className='flex justify-between items-center py-8 md:px-6 px-4 bg-black text-white relative'>
-      <div className='flex-1 flex items-center justify-start'>
-        <button className='mr-2 md:hidden block' onClick={() => setOpen(true)}>
-          <Menu />
-        </button>
-        <button>
-          <Search />
-        </button>
-      </div>
+    <header className='flex flex-col justify-between items-center  bg-black text-white'>
+      <div className='flex-1 flex w-full py-8 md:px-6 px-4'>
+        <div className='flex-1 flex items-center justify-start'>
+          <button
+            className='mr-2 md:hidden block'
+            onClick={() => setOpen(true)}
+          >
+            <Menu />
+          </button>
 
-      {/* <button className='relative'>
+          <button>
+            <Search />
+          </button>
+        </div>
+
+        {/* <button className='relative'>
           <a
             className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent cursor-pointer'
             onClick={() => {
@@ -46,20 +51,49 @@ const Navbar = () => {
             )}
           </a>
         </button> */}
-      <div className='flex flex-1 justify-center relative'>
-        <Link href='/' passHref onClick={() => setOpen(false)}>
-          <h1 className='text-3xl uppercase font-logo font-extrabold text-center leading-6 truncate'>
-            Urban Vikings
-          </h1>
-        </Link>
-        <div className='h-1 w-64 bg-white absolute top-1/2 -translate-y-1/2'></div>
+        <div className='flex flex-1 justify-center relative'>
+          <Link href='/' passHref onClick={() => setOpen(false)}>
+            <h1 className='text-3xl uppercase font-logo font-extrabold text-center leading-6 truncate'>
+              Urban Vikings
+            </h1>
+          </Link>
+          <div className='h-1 w-64 bg-white absolute top-1/2 -translate-y-1/2'></div>
+        </div>
+        <button
+          className='flex-1 flex justify-end'
+          onClick={() => setOpen(false)}
+        >
+          <ShoppingBag />
+        </button>
       </div>
-      <button
-        className='flex-1 flex justify-end'
-        onClick={() => setOpen(false)}
+
+      <nav
+        className={`flex-1 bg-white w-[60%] md:w-full text-black py-4 
+      absolute md:relative top-0 left-0 h-full md:h-fit flex items-start justify-center pt-28 md:pt-4 border-r-2 border-black md:border-r-0 transition-all md:translate-x-0
+      ${open ? '' : '-translate-x-full'}
+      `}
       >
-        <ShoppingBag />
-      </button>
+        <button
+          className='md:hidden absolute top-0 left-0 pl-12 pt-8'
+          onClick={() => setOpen(false)}
+        >
+          <X size={32} />
+        </button>
+        <ul className='flex items-start justify-center md:space-x-16 flex-col md:flex-row space-y-8 md:space-y-0 font-extrabold text-2xl md:text-base uppercase'>
+          <li>
+            <Link href='/'>Clothes</Link>
+          </li>
+          <li>
+            <Link href='/'>Shoes</Link>
+          </li>
+          <li>
+            <Link href='/'>Accessories</Link>
+          </li>
+          <li>
+            <Link href='/'>Undies</Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

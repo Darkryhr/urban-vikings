@@ -7,10 +7,10 @@ const Home = () => {
   return (
     <div>
       <section className='max-w-screen-xl mx-auto px-4'>
-        <div className='flex flex-col justify-center w-full h-[90vh]'>
+        <div className='flex flex-col justify-center w-full md:h-[84vh] h-[90vh]'>
           <div
             className="
-         bg-[url('/hero.jpg')] bg-cover bg-left-top absolute w-full -z-10 left-0 top-0 h-screen
+         bg-[url('/hero.jpg')] bg-cover bg-left-top absolute w-full -z-10 left-0 top-0 h-full
         "
           ></div>
 
