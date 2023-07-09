@@ -6,7 +6,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      body: ['Josefin Sans', 'sans-serif'],
+      body: ['Inter', 'sans-serif'],
+      logo: ['Belanosima'],
+      heading: ['"Inter Tight"'],
     },
     extend: {
       keyframes: {

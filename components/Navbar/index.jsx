@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { BiCart } from 'react-icons/bi';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { useCart } from '@lib/useCart';
+import { Menu, Search, ShoppingBag } from 'lucide-react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React, { useEffect, useRef, useState } from 'react';
 import CartBar from './CartBar';
-import Logo from '@components/svg/Logo';
 
 const Navbar = () => {
   const { openCart, cartItems } = useCart();
@@ -24,61 +22,17 @@ const Navbar = () => {
   });
 
   return (
-    <nav
-      className={`max-w-screen-xl mx-auto flex justify-between items-center py-4 md:px-8 px-3 ${
-        router.pathname === '/' ? 'md:text-gray-800 text-white' : ''
-      }`}
-    >
-      <Link href='/' passHref onClick={() => setOpen(false)}>
-        <div className='flex w-fit items-center justify-start'>
-          <div className='w-9'>
-            <Logo />
-          </div>
-          <h1 className='md:text-xl uppercase font-bold tracking-wider cursor-pointer transition-opacity hover:opacity-80 ml-2 pt-1 whitespace-nowrap'>
-            Urban Vikings
-          </h1>
-        </div>
-      </Link>
-      <button className='md:hidden mb-1' onClick={() => setOpen(true)}>
-        <AiOutlineMenu size={18} />
-      </button>
-      <div
-        ref={ref}
-        className={`
-        ${router.pathname === '/' ? 'md:text-white text-gray-800' : ''}
-        md:space-x-6 items-center transition md:flex-row md:space-y-0 md:h-auto md:bg-transparent md:relative md:w-auto md:border-none md:translate-x-0 md:pt-0
-        text-sm flex flex-col space-x-0 space-y-3 h-screen bg-gray-50 fixed z-50 top-0 right-0 w-1/2 border-l border-gray-200 pt-4 font-medium
-        ${open ? 'translate-x-0' : 'translate-x-full'}
-        `}
-      >
-        <button className='py-4 md:hidden' onClick={() => setOpen(false)}>
-          <AiOutlineClose size={22} />
+    <header className='flex justify-between items-center py-8 md:px-6 px-4 bg-black text-white relative'>
+      <div className='flex-1 flex items-center justify-start'>
+        <button className='mr-2 md:hidden block' onClick={() => setOpen(true)}>
+          <Menu />
         </button>
-        <Link href='/'>
-          <a
-            className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent md:hover:underline'
-            onClick={() => setOpen(false)}
-          >
-            Home
-          </a>
-        </Link>
-        <Link href='/store'>
-          <a
-            className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent md:hover:underline'
-            onClick={() => setOpen(false)}
-          >
-            Store
-          </a>
-        </Link>
-        <Link href='/about'>
-          <a
-            className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent md:hover:underline'
-            onClick={() => setOpen(false)}
-          >
-            About
-          </a>
-        </Link>
-        <button className='relative'>
+        <button>
+          <Search />
+        </button>
+      </div>
+
+      {/* <button className='relative'>
           <a
             className='md:py-0 py-3 md:w-min w-full text-center transition-colors hover:bg-gray-200 md:hover:bg-transparent cursor-pointer'
             onClick={() => {
@@ -91,10 +45,22 @@ const Navbar = () => {
               <div className='w-1.5 h-1.5 bg-red-800 absolute top-0 right-0 rounded-lg mt-[2px] mr-[1px]'></div>
             )}
           </a>
-        </button>
+        </button> */}
+      <div className='flex flex-1 justify-center relative'>
+        <Link href='/' passHref onClick={() => setOpen(false)}>
+          <h1 className='text-3xl uppercase font-logo font-extrabold text-center leading-6 truncate'>
+            Urban Vikings
+          </h1>
+        </Link>
+        <div className='h-1 w-64 bg-white absolute top-1/2 -translate-y-1/2'></div>
       </div>
-      <CartBar />
-    </nav>
+      <button
+        className='flex-1 flex justify-end'
+        onClick={() => setOpen(false)}
+      >
+        <ShoppingBag />
+      </button>
+    </header>
   );
 };
 

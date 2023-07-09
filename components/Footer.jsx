@@ -4,7 +4,7 @@ import Logo from './svg/Logo';
 
 const Footer = () => {
   return (
-    <footer className='w-full bg-black h-52 text-gray-200 flex justify-center items-center mt-4'>
+    <footer className='w-full bg-black h-52 text-gray-200 flex justify-center items-center'>
       <div className='flex w-full max-w-screen-xl justify-between items-center px-8'>
         <div className='flex flex-col space-y-4 '>
           <Link href='/'>
