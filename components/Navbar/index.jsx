@@ -93,7 +93,7 @@ const Navbar = () => {
           <X size={32} />
         </button>
         {!searching ? (
-          <ul className='flex items-start justify-center md:space-x-16 flex-col md:flex-row space-y-8 md:space-y-0 font-extrabold text-2xl md:text-base uppercase ml-12'>
+          <ul className='flex md:items-center items-start justify-between w-full max-w-3xl flex-col md:flex-row space-y-8 md:space-y-0 font-extrabold text-2xl md:text-base uppercase md:ml-0 ml-12 pr-12'>
             <li>
               <SearchBar closeSearch={setSearching} open={searching} />
             </li>
