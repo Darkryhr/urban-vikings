@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
+import React, { useState } from 'react';
 
 const ProductPage = ({
   product: { id, title, image, price, color, sizes },
@@ -10,7 +10,6 @@ const ProductPage = ({
   const [quantity, setQuantity] = useState(0);
   const [size, setSize] = useState(sizes[0]);
 
-  console.log(sizes);
   return (
     <main className='pt-4 pb-8 w-full max-w-screen-xl md:px-8 px-2 mx-auto'>
       <div className='md:flex w-full'>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { EditBar } from '@components/EditBar';
+import React, { useState } from 'react';
 
 import products from '@data/products.json';
 import { useCart } from '@lib/useCart';
@@ -18,36 +18,39 @@ const Cart = () => {
   const total = getProductTotal(cartItems);
   return (
     <main className='max-w-screen-xl px-8 mx-auto py-16'>
-      <h1 className='w-full text-3xl font-semibold mb-6'>Your Cart</h1>
-      <div></div>
+      <h1 className='text-3xl font-heading'>Your Cart</h1>
+      <div className='h-[1px] bg-zinc-300 w-full my-4'></div>
       <div className='grid md:gap-20 gap-8 md:grid-cols-2'>
         <div>
-          <h3 className='text-xl'>
+          <h3 className='text-xl mb-4 mt-2'>
             {cartItems.length === 1 ? '1 Item' : `${cartItems.length} items`}
           </h3>
-          <div className='w-full h-[1px] bg-zinc-300 mb-4 mt-2'></div>
           <section>
             {cartItems.map(item => (
               <CartItem key={item.id} {...item} />
             ))}
           </section>
         </div>
-        <section>
+        <section className='flex flex-col'>
           <h3 className='text-xl'>Order Summary</h3>
-          <div className='w-full h-[1px] bg-zinc-300 mb-4 mt-2'></div>
-          <div className='grid grid-cols-2 space-y-2'>
-            <p className='text-zinc-500'>Products:</p>
-            <p className='text-zinc-500'>${total}</p>
-            <p className='text-zinc-500'>Shipping:</p>
-            <p className='text-zinc-500'>$14.99</p>
+          <div className='w-3/4 h-[1px] bg-zinc-300 mb-4 mt-2'></div>
+          <div className='grid grid-cols-1 space-y-2 items-center'>
+            <div className='md:w-1/2 flex justify-between'>
+              <p className='text-zinc-500'>Products:</p>
+              <span> ${total}</span>
+            </div>
+            <div className='md:w-1/2 flex justify-between'>
+              <p className='text-zinc-500'>Shipping: </p>
+              <span> $14.99</span>
+            </div>
           </div>
-          <div className='w-full h-[1px] bg-zinc-300 mb-2 mt-4'></div>
-          <div className='grid grid-cols-2 my-4'>
+          <div className='w-3/4 h-[1px] bg-zinc-300 mb-2 mt-4'></div>
+          <div className='mt-4 mb-6 flex justify-between md:w-1/2'>
             <p className='text-zinc-800 font-semibold'>Sub Total:</p>
             <p className='text-zinc-500'>${14.99 + total}</p>
           </div>
           <button
-            className='bg-blue-700 transition-colors hover:bg-blue-600 text-white w-full py-3 rounded-full'
+            className='bg-blue-700 transition-colors hover:bg-blue-600 text-white w-full py-3 '
             onClick={checkout}
           >
             Proceed to Payment
